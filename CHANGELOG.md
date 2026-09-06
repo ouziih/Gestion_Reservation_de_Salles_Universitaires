@@ -17,3 +17,13 @@
 - Configuration des variables d'environnement avec Dotenv
 - Connexion MySQL avec Capsule et Eloquent
 - Création des tables `salles` et `reservations`
+
+## v0.3.0 - 2026-09-06
+
+### Ajouté
+
+- Création des modèles Eloquent `Salle` et `Reservation`
+- Association explicite des modèles avec leurs tables
+- Configuration des attributs assignables avec `$fillable`
+- Configuration des conversions de types avec `$casts`
+- Ajout de la relation entre les salles et les réservations
