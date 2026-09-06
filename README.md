@@ -16,3 +16,21 @@ Projet en cours de développement.
 - FastRoute
 - PHP-DI
 - Respect/Validation
+
+## Configuration locale
+
+Créer un fichier `.env` à partir de `.env.example`, puis renseigner les
+paramètres de connexion à MySQL.
+
+Le fichier `.env` reste local et ne doit pas être versionné.
+
+## Création des tables
+
+Après avoir créé la base `reservation_salles`, exécuter les migrations :
+
+```bash
+php database/migrations/001_create_salles_table.php
+php database/migrations/002_create_reservations_table.php
+```
+
+Ces scripts créent les tables `salles` et `reservations` avec Eloquent.

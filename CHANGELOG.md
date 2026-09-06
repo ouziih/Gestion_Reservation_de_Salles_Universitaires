@@ -9,3 +9,11 @@
 - Ajout du fichier `.gitignore`
 - Création du fichier `README.md`
 - Création du fichier `CHANGELOG.md`
+
+## v0.2.0 - 2026-09-06
+
+### Ajouté
+
+- Configuration des variables d'environnement avec Dotenv
+- Connexion MySQL avec Capsule et Eloquent
+- Création des tables `salles` et `reservations`
