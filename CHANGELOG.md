@@ -27,3 +27,11 @@
 - Configuration des attributs assignables avec `$fillable`
 - Configuration des conversions de types avec `$casts`
 - Ajout de la relation entre les salles et les réservations
+
+## v0.4.0 - 2026-09-06
+
+### Ajouté
+
+- Création du script `database/seed.php`
+- Ajout de cinq salles initiales
+- Prévention des doublons avec `firstOrCreate`
