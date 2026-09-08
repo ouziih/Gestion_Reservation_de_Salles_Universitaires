@@ -27,3 +27,22 @@
 - Configuration des attributs assignables avec `$fillable`
 - Configuration des conversions de types avec `$casts`
 - Ajout de la relation entre les salles et les réservations
+
+## v0.4.0 - 2026-09-06
+
+### Ajouté
+
+- Création du script `database/seed.php`
+- Ajout de cinq salles initiales
+- Prévention des doublons avec `firstOrCreate`
+
+## v0.5.0 - 2026-09-08
+
+### Ajouté
+
+- Création du contrat `ValidatorInterface`
+- Création de `ValidationResult`
+- Validation des salles avec `SalleValidator`
+- Validation des réservations avec `ReservationValidator`
+- Utilisation de Respect/Validation pour les règles de validation
+- Vérification du format, de l’ordre et de la durée des dates
