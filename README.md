@@ -62,3 +62,14 @@ if (!$resultat->isValid()) {
 `SalleValidator` vérifie les champs d’une salle. `ReservationValidator`
 vérifie les champs d’une réservation, le format des dates, leur ordre et la
 durée maximale de quatre heures.
+
+## DTO et builders
+
+Les données validées peuvent être transformées en objets de transfert :
+
+- `SalleDto` avec `SalleDtoBuilder` ;
+- `ReservationDto` avec `ReservationDtoBuilder`.
+
+Les builders construisent progressivement les DTOs et refusent de créer un
+objet si un champ obligatoire manque. Les DTOs sont ensuite transmis aux
+couches métier sans dépendre directement des données HTTP.

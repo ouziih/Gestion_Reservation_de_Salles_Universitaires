@@ -46,3 +46,12 @@
 - Validation des réservations avec `ReservationValidator`
 - Utilisation de Respect/Validation pour les règles de validation
 - Vérification du format, de l’ordre et de la durée des dates
+
+## v0.6.0 - 2026-09-08
+
+### Ajouté
+
+- Création de `SalleDto` et `ReservationDto`
+- Création de leurs builders respectifs
+- Construction progressive des DTOs après validation
+- Normalisation des dates de réservation en `DateTimeImmutable`

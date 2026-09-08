@@ -56,7 +56,15 @@ class ReservationValidator implements ValidatorInterface
             }
         }
 
-        return new ValidationResult($errors, $errors === [] ? $data : []);
+        if ($errors !== []) {
+            return new ValidationResult($errors);
+        }
+
+        $acceptedData = $data;
+        $acceptedData['date_debut'] = $start;
+        $acceptedData['date_fin'] = $end;
+
+        return new ValidationResult([], $acceptedData);
     }
 
     private function parseDate(mixed $value): ?\DateTimeImmutable
