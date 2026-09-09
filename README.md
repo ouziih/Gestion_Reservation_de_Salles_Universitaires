@@ -85,3 +85,18 @@ Les services métier utilisent ces repositories pour lire et enregistrer les
 données sans effectuer directement les requêtes ORM. La recherche des
 réservations confirmées qui se chevauchent est également centralisée dans
 `EloquentReservationRepository`.
+
+## Services métier
+
+Les règles métier de réservation sont centralisées dans :
+
+- `CreerReservationService` ;
+- `AnnulerReservationService`.
+
+`CreerReservationService` vérifie l’existence et l’activation de la salle,
+la cohérence des dates, la durée maximale et les conflits avant de créer la
+réservation. `AnnulerReservationService` vérifie l’existence de la
+réservation avant de modifier son statut.
+
+Les services dépendent des interfaces de repositories et ne connaissent ni
+`$_POST`, ni FastRoute, ni les vues, ni le conteneur.

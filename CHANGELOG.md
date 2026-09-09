@@ -64,3 +64,13 @@
 - Création des implémentations Eloquent des repositories
 - Centralisation de la lecture et de l’écriture des salles et réservations
 - Ajout de la recherche des réservations confirmées qui se chevauchent
+
+## v0.8.0 - 2026-09-09
+
+### Ajouté
+
+- Création de `CreerReservationService`
+- Création de `AnnulerReservationService`
+- Création de `SalleIndisponibleException`
+- Création de `ReservationIntrouvableException`
+- Centralisation des règles métier de création et d’annulation
