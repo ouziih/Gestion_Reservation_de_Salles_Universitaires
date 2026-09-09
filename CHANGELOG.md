@@ -84,3 +84,13 @@
 - Ajout des formulaires avec affichage des erreurs par champ
 - Ajout des redirections après les requêtes POST réussies
 - Intégration du layout commun pour le rendu des vues
+
+## v0.10.0 - 2026-09-09
+
+### Ajouté
+
+- Déclaration des routes dans `routes/Routes.php`
+- Création du dispatcher FastRoute dans `routes/Web.php`
+- Gestion des réponses 404 et 405
+- Transmission des paramètres dynamiques aux contrôleurs
+- Documentation de FastRoute et réponses aux questions de l'étape 10
