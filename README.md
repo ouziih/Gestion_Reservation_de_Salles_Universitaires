@@ -73,3 +73,15 @@ Les données validées peuvent être transformées en objets de transfert :
 Les builders construisent progressivement les DTOs et refusent de créer un
 objet si un champ obligatoire manque. Les DTOs sont ensuite transmis aux
 couches métier sans dépendre directement des données HTTP.
+
+## Repositories
+
+Les repositories centralisent l’accès aux modèles Eloquent :
+
+- `SalleRepositoryInterface` et `EloquentSalleRepository` ;
+- `ReservationRepositoryInterface` et `EloquentReservationRepository`.
+
+Les services métier utilisent ces repositories pour lire et enregistrer les
+données sans effectuer directement les requêtes ORM. La recherche des
+réservations confirmées qui se chevauchent est également centralisée dans
+`EloquentReservationRepository`.

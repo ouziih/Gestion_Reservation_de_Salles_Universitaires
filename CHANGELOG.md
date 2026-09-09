@@ -55,3 +55,12 @@
 - Création de leurs builders respectifs
 - Construction progressive des DTOs après validation
 - Normalisation des dates de réservation en `DateTimeImmutable`
+
+## v0.7.0 - 2026-09-08
+
+### Ajouté
+
+- Création des contrats `SalleRepositoryInterface` et `ReservationRepositoryInterface`
+- Création des implémentations Eloquent des repositories
+- Centralisation de la lecture et de l’écriture des salles et réservations
+- Ajout de la recherche des réservations confirmées qui se chevauchent
