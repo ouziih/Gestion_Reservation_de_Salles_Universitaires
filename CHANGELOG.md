@@ -74,3 +74,13 @@
 - Création de `SalleIndisponibleException`
 - Création de `ReservationIntrouvableException`
 - Centralisation des règles métier de création et d’annulation
+
+## v0.9.0 - 2026-09-09
+
+### Ajouté
+
+- Création de `SalleController` et `ReservationController`
+- Création des vues des salles, réservations et erreurs
+- Ajout des formulaires avec affichage des erreurs par champ
+- Ajout des redirections après les requêtes POST réussies
+- Intégration du layout commun pour le rendu des vues

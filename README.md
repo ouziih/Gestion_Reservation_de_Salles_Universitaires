@@ -100,3 +100,10 @@ réservation avant de modifier son statut.
 
 Les services dépendent des interfaces de repositories et ne connaissent ni
 `$_POST`, ni FastRoute, ni les vues, ni le conteneur.
+
+## Interface web
+
+Les contrôleurs `SalleController` et `ReservationController` coordonnent les
+requêtes HTTP avec les validateurs, builders, services et repositories. Les
+vues sont organisées dans `templates/` et sont rendues dans le layout commun
+`templates/layout/base.php`.

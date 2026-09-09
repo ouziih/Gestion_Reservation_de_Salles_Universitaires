@@ -17,4 +17,6 @@ interface SalleRepositoryInterface
     public function all(): Collection;
 
     public function create(SalleDto $data): Salle;
+
+    public function update(int $id, SalleDto $data): ?Salle;
 }

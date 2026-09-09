@@ -44,4 +44,24 @@ final class EloquentSalleRepository implements SalleRepositoryInterface
             'active' => $data->active,
         ]);
     }
+
+    public function update(int $id, SalleDto $data): ?Salle
+    {
+        $salle = $this->findById($id);
+
+        if ($salle === null) {
+            return null;
+        }
+
+        $salle->fill([
+            'nom' => $data->nom,
+            'batiment' => $data->batiment,
+            'capacite' => $data->capacite,
+            'type' => $data->type,
+            'active' => $data->active,
+        ]);
+        $salle->save();
+
+        return $salle;
+    }
 }
