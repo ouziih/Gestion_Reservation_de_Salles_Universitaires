@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: reservation-salles-php:refactor-v0.0.0
+    image: reservation-salles-php:refactor-v0.1.0
     env_file:
       - .env
     volumes:
