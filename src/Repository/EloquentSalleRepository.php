@@ -7,6 +7,7 @@ namespace App\Repository;
 use App\DTO\SalleDto;
 use App\Model\Salle;
 use Illuminate\Database\Eloquent\Collection;
+use RuntimeException;
 
 final class EloquentSalleRepository implements SalleRepositoryInterface
 {
@@ -43,5 +44,26 @@ final class EloquentSalleRepository implements SalleRepositoryInterface
             'type' => $data->type,
             'active' => $data->active,
         ]);
+    }
+
+    public function update(int $id, SalleDto $data): Salle
+    {
+        $salle = $this->model->newQuery()->find($id);
+
+        if ($salle === null) {
+            throw new RuntimeException('La salle ' . $id . ' est introuvable.');
+        }
+
+        $salle->fill([
+            'nom' => $data->nom,
+            'batiment' => $data->batiment,
+            'capacite' => $data->capacite,
+            'type' => $data->type,
+            'active' => $data->active,
+        ]);
+
+        $salle->save();
+
+        return $salle;
     }
 }
