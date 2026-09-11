@@ -2,7 +2,11 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 
+=======
+use Illuminate\Database\Capsule\Manager as Capsule;
+>>>>>>> refactor-v0.1.0/feature/05-validation
 use Illuminate\Database\Schema\Blueprint;
 
 require_once dirname(__DIR__, 2) . '/vendor/autoload.php';
@@ -19,4 +23,8 @@ if (!$capsule->schema()->hasTable('salles')) {
         $table->boolean('active')->default(true);
         $table->timestamps();
     });
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> refactor-v0.1.0/feature/05-validation

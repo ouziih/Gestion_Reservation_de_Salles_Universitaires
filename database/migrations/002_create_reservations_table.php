@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 use Illuminate\Database\Schema\Blueprint;
 
 require_once dirname(__DIR__, 2) . '/vendor/autoload.php';
