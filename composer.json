@@ -1,6 +1,8 @@
 {
     "name": "ousmane/gestion_reservation_de_salles_universitaires",
+    "description": "Application de gestion des réservations de salles universitaires.",
     "type": "project",
+    "license": "proprietary",
     "require": {
         "nikic/fast-route": "^1.3",
         "respect/validation": "^2.4",

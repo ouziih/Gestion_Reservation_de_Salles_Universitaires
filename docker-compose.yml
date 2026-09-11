@@ -7,7 +7,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ./public:/var/www/public:ro
+      - ./:/var/www
 
   nginx:
     image: nginx:1.27-alpine

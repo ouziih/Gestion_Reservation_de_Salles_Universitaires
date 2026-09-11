@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+usage() {
+    cat <<'USAGE'
+Usage:
+  ./bin/database migrate all
+  ./bin/database migrate <nom_de_migration>
+  ./bin/database seed all
+  ./bin/database seed <nom_de_seeder>
+
+Exemples:
+  ./bin/database migrate 001_create_salles_table
+  ./bin/database seed 001_salles_initiales
+USAGE
+}
+
+command_name="${1:-}"
+target="${2:-all}"
+
+case "$command_name" in
+    migrate)
+        directory="$PROJECT_ROOT/database/migrations"
+        label="migration"
+        ;;
+    seed)
+        directory="$PROJECT_ROOT/database/seeders"
+        label="seeder"
+        ;;
+    -h|--help|help)
+        usage
+        exit 0
+        ;;
+    *)
+        usage >&2
+        exit 1
+        ;;
+esac
+
+if [[ ! -d "$directory" ]]; then
+    printf 'Dossier introuvable : %s\n' "$directory" >&2
+    exit 1
+fi
+
+files=()
+
+if [[ "$target" == "all" ]]; then
+    while IFS= read -r -d '' file; do
+        files+=("$file")
+    done < <(find "$directory" -maxdepth 1 -type f -name '*.php' -print0 | LC_ALL=C sort -z -V)
+else
+    if [[ ! "$target" =~ ^[A-Za-z0-9_-]+(\.php)?$ ]]; then
+        printf 'Nom de fichier invalide : %s\n' "$target" >&2
+        exit 1
+    fi
+
+    file="$directory/${target%.php}.php"
+
+    if [[ ! -f "$file" ]]; then
+        printf '%s introuvable : %s\n' "$label" "$file" >&2
+        exit 1
+    fi
+
+    files=("$file")
+fi
+
+if (( ${#files[@]} == 0 )); then
+    printf 'Aucun %s à exécuter.\n' "$label"
+    exit 0
+fi
+
+for file in "${files[@]}"; do
+    printf 'Exécution %s : %s\n' "$label" "$(basename "$file")"
+    php "$file"
+done
+
+printf '%s(s) exécuté(s) avec succès.\n' "$label"

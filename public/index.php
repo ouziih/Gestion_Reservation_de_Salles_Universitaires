@@ -1,11 +1,6 @@
 <?php
 
-declare(strict_types=1);
+require_once dirname(__DIR__)."/vendor/autoload.php";
 
-require dirname(__DIR__) . '/vendor/autoload.php';
+require dirname(__DIR__)."/config/database.php";
 
-use App\Application;
-
-header('Content-Type: text/plain; charset=UTF-8');
-
-(new Application())->hello();
